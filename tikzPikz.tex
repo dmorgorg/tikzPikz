@@ -1,0 +1,75 @@
+\documentclass[9pt,xcolor={svgnames, x11names}]{beamer}
+
+\usefonttheme{professionalfonts}
+\everymath{\displaystyle}
+
+\usepackage{tikz}
+
+\input{includes/definedColors}
+\input{includes/macros}
+
+\usetheme{Antibes}
+\usecolortheme[named=gray]{structure}
+\setbeamertemplate{headline}{} % remove Antibes header
+\setbeamertemplate{navigation symbols}{} % empty braces suppresses all navigation symbols
+\setbeamertemplate{footline}{
+  \hfill \insertshorttitle \quad \insertsection : \insertsubsection
+  \quad \insertframenumber/\inserttotalframenumber \quad{ } \vspace{0.125cm}
+}
+
+
+
+
+
+
+\title[\color{black}TikzPikz]{\Huge tikzPikz}
+\subtitle{} % i.e., a blank line
+\institute{\small Source code at: \lb{\footnotesize\url{https://github.com/dmorgorg/tikzPikz}}}
+\author{} % another blanky
+\date{\small Last updated on \today}
+
+\begin{document}
+    \begin{frame}
+        \titlepage 
+    \end{frame}
+    \begin{frame}{Table of Contents}
+        \tableofcontents
+    \end{frame}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \section{Components}
+
+    \begin{frame}{Components}
+        Components are images/widgets for repeated use in figures. \parb 
+        For example, a pinned connection or a structural member for use in one or more statics pikz.
+    \end{frame}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \section{Statics}
+    % \subsection{Complex Frames}
+
+    \begin{frame}{a truss could go here}{but it doesn't yet}
+        TO DO
+    \end{frame}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \section{Strength}
+    \subsection{Axial Deformation}
+
+    \begin{frame}{title}{green, or should be}
+        nothing yet, bud
+    \end{frame}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \section{Fluids}
+    % \subsection{Series Type A Systems}
+    % \subsection{Equivalent Pipe}
+    \subsection{Open Channel Flow}
+
+    \begin{frame}{Fluid}{Open Channel \#01}
+        COMING SOON
+    \end{frame}
+    
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
