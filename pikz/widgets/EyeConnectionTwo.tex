@@ -1,0 +1,21 @@
+% !TEX root = ../tikzPikz.tex
+
+%\EyeConnectionTwo[rotate=0]{coordinate}{fill}{draw}{line width}{scale}
+\newcommand{\EyeConnectionTwo}[6][0]{
+	\def\rotate{#1} % optional, defaults to 0
+	\def\pin{#2} % coordinate for centre of roller
+	\def\ffill{#3} % fill color
+	\def\ddraw{#4} % stroke color
+    \def\width{#5} % stroke width in pt
+	\def\scale{#6} % scale
+	
+	\begin{scope}[rotate=\rotate, fill=\ffill, draw=\ddraw, line width=\width ex, scale=\scale]
+       
+        \filldraw[rounded corners=0.5mm] ($(\pin) + (-0.7,-1)$) arc(180:90:.2) -- ++(0.05,0)arc(-90:0:0.2) -- ++(0.05,0.4)arc(225:-45:0.28284)-- ++(0.05,-.4)arc(180:270:.2)-- ++(0.05,0)arc(90:0:0.2) -- cycle;
+
+        \fill[outer color=\ffill, inner color=black] (\pin) circle (2.5mm);
+		\filldraw[fill=white] (\pin) circle (1.25mm);
+
+        % \draw ($ (\pin) + (-1,-\h) $) -- +(2,0);
+	\end{scope}
+}

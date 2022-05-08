@@ -2,3 +2,29 @@
 \newcommand\pars{\par\smallskip}
 \newcommand\parm{\par\medskip}
 \newcommand\parb{\par\bigskip}
+
+% left flushed minipage
+\newcommand{\mini}[2][0.8]{
+	\begin{minipage}[c]{#1\columnwidth}
+		\raggedright
+		#2
+	\end{minipage}
+}
+
+\newcommand{\cmini}[2][0.8]{
+	\begin{center}
+		\begin{minipage}{#1\columnwidth}
+			\raggedright
+			#2
+		\end{minipage}
+	\end{center}
+}
+
+%  copied from somewhere, don't remember where
+\makeatletter
+\providecommand{\gettikzxy}[3]{%
+	\tikz@scan@one@point\pgfutil@firstofone#1\relax
+	\edef#2{\the\pgf@x}%
+	\edef#3{\the\pgf@y}%
+}
+\makeatother

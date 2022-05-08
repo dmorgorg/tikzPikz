@@ -1,0 +1,19 @@
+% !TEX root = ../tikzPikz.tex
+
+%\Rocker[rotate=0]{coordinate}{fill}{draw}{line width}{scale}
+\newcommand{\Rocker}[6][0]{
+	\def\rotate{#1} % optional, defaults to 0
+	\def\pin{#2} % coordinate for centre of roller
+	\def\ffill{#3} % fill color
+	\def\ddraw{#4} % stroke color
+    \def\width{#5} % stroke width in pt
+	\def\scale{#6} % scale
+
+	\begin{scope}[rotate=\rotate, fill=\ffill, draw=\ddraw, line width=\width ex, scale=\scale]        
+        \filldraw [rounded corners]($(\pin) + (0,-1)$)arc(-90:-57.54:1) -- 
+		++(105:0.95394)arc(15:165:0.3) -- ++(-105:0.95394)arc(-122.458:-90:1);
+
+        \shadedraw[ball color=\ffill] (\pin) circle (1.5 mm);
+        % \draw ($ (\pin) + (-1,-1) $) -- +(2,0);
+	\end{scope}
+}

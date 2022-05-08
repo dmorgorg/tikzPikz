@@ -1,0 +1,17 @@
+% !TEX root = ../tikzPikz.tex
+
+%\RollerOnly[rotate=0]{coordinate}{fill}{draw}{line width}{scale}
+\newcommand{\RollerOnly}[6][0]{
+	\def\rotate{#1} % optional, defaults to 0
+	\def\pin{#2} % coordinate for centre of roller
+	\def\ffill{#3} % fill color
+	\def\ddraw{#4} % stroke color
+    \def\width{#5} % stroke width in pt
+	\def\scale{#6} % scale
+
+	\begin{scope}[rotate=\rotate, fill=\ffill, draw=\ddraw, line width=\width ex, scale=\scale]
+        \shadedraw[ball color=\ffill] (\pin) circle (1 cm);
+        \shadedraw[ball color=\ffill] (\pin) circle (1.5 mm);
+        % \draw ($ (\pin) + (-1,-1) $) -- +(2,0);
+	\end{scope}
+}

@@ -1,0 +1,28 @@
+% !TEX root = ../tikzPikz.tex
+
+%\RollerThree[rotate=0]{coordinate}{fill}{draw}{line width}{scale}
+\newcommand{\RollerThree}[6][0]{
+	\def\rotate{#1} % optional, defaults to 0
+	\def\pin{#2} % coordinate for centre of roller
+	\def\ffill{#3} % fill color
+	\def\ddraw{#4} % stroke color
+    \def\width{#5} % stroke width in pt
+	\def\scale{#6} % scale
+	
+	\begin{scope}[rotate=\rotate, fill=\ffill, draw=\ddraw, line width=\width ex, scale=\scale]
+        \filldraw[rounded corners] ($(\pin) + (-0.52494,-.8)$) -- ++(1.05, 0) -- ++(105:0.9059)arc(15:165:0.3) -- cycle;
+        
+        \shadedraw[ball color=\ffill] (\pin) circle (1.5 mm);
+        \shadedraw[ball color=\ffill] ($ (\pin) - (0.475,0.8) $) circle (0.2);
+        \shadedraw[ball color=\ffill] ($ (\pin) - (0,0.8) $) circle (0.2);
+        \shadedraw[ball color=\ffill] ($ (\pin) - (-0.475,0.8) $) circle (0.2);
+        \shadedraw[ball color=\ffill!50!black] ($ (\pin) - (0.475,0.8) $) circle (0.5 mm);
+        \shadedraw[ball color=\ffill!50!black] ($ (\pin) - (0,0.8) $) circle (0.5 mm);
+        \shadedraw[ball color=\ffill!50!black] ($ (\pin) - (-0.475,0.8) $) circle (0.5 mm);
+
+		\filldraw[rounded corners = \scale pt] ($ (\pin) - (0.75,0.8) $) rectangle +(1.5,0.35);
+
+		% \draw ($ (\pin) + (-1,-1) $) -- +(2,0);
+		
+	\end{scope}
+}

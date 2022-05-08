@@ -1,6 +1,6 @@
-*.fls
 *.aux
 *.fdb_latexmk
+*.fls
 *.log
 *.nav
 *.out
@@ -8,5 +8,4 @@
 *.synctex.gz
 *.synctex.gz(busy)
 *.toc
-*.md
 *.vrb

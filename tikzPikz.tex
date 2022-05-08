@@ -4,9 +4,23 @@
 \everymath{\displaystyle}
 
 \usepackage{tikz}
+\usepackage{pgfmath} % for veclen calculations 
+\usepackage{verbatim} % for latex code in latex doc
+\usetikzlibrary{calc} % only works within a path
+% \usetikzlibrary{shadings} % always defined?
+% \usetikzlibrary{calc} % only works within a path
+
+% \def\scale{42} % initialisation for pikz
 
 \input{includes/definedColors}
 \input{includes/macros}
+\input{pikz/widgets/EyeConnection}
+\input{pikz/widgets/EyeConnectionTwo}
+\input{pikz/widgets/PinnedConnection}
+\input{pikz/widgets/Rocker}
+\input{pikz/widgets/RollerOne}
+\input{pikz/widgets/RollerOnly}
+\input{pikz/widgets/RollerThree}
 
 \usetheme{Antibes}
 \usecolortheme[named=gray]{structure}
@@ -16,43 +30,198 @@
   \hfill \insertshorttitle \quad \insertsection : \insertsubsection
   \quad \insertframenumber/\inserttotalframenumber \quad{ } \vspace{0.125cm}
 }
+\setbeamertemplate{section in toc}[sections numbered]
+\setbeamertemplate{subsection in toc}[ball numbered]
 
-
-
-
-
-
+%%%%%%%%%%%%%%%%%%%%% TITLE PAGE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \title[\color{black}TikzPikz]{\Huge tikzPikz}
 \subtitle{} % i.e., a blank line
 \institute{\small Source code at: \lb{\footnotesize\url{https://github.com/dmorgorg/tikzPikz}}}
 \author{} % another blanky
 \date{\small Last updated on \today}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
     \begin{frame}
         \titlepage 
     \end{frame}
+    
     \begin{frame}{Table of Contents}
-        \tableofcontents
-    \end{frame}
+        \cmini[0.6]{
+            \tableofcontents
+        }
+    \end{frame}   
+    
+    \centering
 
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \section{Components}
-
-    \begin{frame}{Components}
-        Components are images/widgets for repeated use in figures. \parb 
-        For example, a pinned connection or a structural member for use in one or more statics pikz.
-    \end{frame}
-
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \setbeamercolor{frametitle}{bg=statics}
     \section{Statics}
-    % \subsection{Complex Frames}
 
-    \begin{frame}{a truss could go here}{but it doesn't yet}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \subsection{Widgets}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+    \begin{frame}[fragile]{Eye Connection}
+
+        \footnotesize
+        \begin{verbatim}
+            \EyeConnection[rotate=0]{coordinate}{fill}{draw}{line width}{scale}
+
+            \EyeConnection{A}{Cornsilk3}{Black}{0.25}{2}
+        \end{verbatim}
+      
+        \vspace{1cm}
+      
+        \tikz{
+          \coordinate (A) at (0,0);
+          \EyeConnection{A}{Cornsilk3}{Black}{0.25}{2}
+        }
+      
+    \end{frame}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+    \begin{frame}[fragile]{Eye Connection Two}
+
+        \footnotesize
+        \begin{verbatim}
+            \EyeConnectionTwo[rotate=0]{coordinate}{fill}{draw}{line width}{scale}
+
+            \EyeConnectionTwo{A}{Cornsilk3}{Black}{0.25}{2}
+        \end{verbatim}
+      
+        \vspace{1cm}
+      
+        \tikz{
+          \coordinate (A) at (0,0);
+          \EyeConnectionTwo{A}{Cornsilk3}{Black}{0.25}{2}
+        }
+      
+    \end{frame}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+    \begin{frame}[fragile]{Pinned Connection}
+
+        \footnotesize
+        \begin{verbatim}
+            \PinnedConnection[rotate=0]{coordinate}{fill}{draw}{line width}{scale}
+
+            \PinnedConnection{A}{Cornsilk3}{Black}{0.25}{2}
+        \end{verbatim}
+      
+        \vspace{1cm}
+      
+        \tikz{
+          \coordinate (A) at (0,0);
+          \PinnedConnection{A}{Cornsilk3}{Black}{0.25}{2}
+        }
+      
+    \end{frame}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+    \begin{frame}[fragile]{Rocker}
+
+        \footnotesize
+        \begin{verbatim}
+            \Rocker[rotate=0]{coordinate}{fill}{draw}{line width}{scale}
+
+            \Rocker{A}{Cornsilk3}{Black}{0.25}{2}
+        \end{verbatim}
+      
+        \vspace{1cm}
+      
+        \tikz{
+          \coordinate (A) at (0,0);
+          \Rocker{A}{Cornsilk3}{Black}{0.25}{2}
+        }
+      
+    \end{frame}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \begin{frame}[fragile]{RollerOne}
+
+        \footnotesize
+        \begin{verbatim}
+          \RollerOne[rotate=0]{coordinate}{fill}{draw}{line width}{scale}
+
+          \RollerOne{A}{Cornsilk3}{Black}{0.25}{2}
+        \end{verbatim}
+      
+        \vspace{1cm}
+      
+        \tikz{
+          \coordinate (A) at (0,0);
+          \RollerOne{A}{Cornsilk3}{Black}{0.25}{2}
+        }
+      
+      \end{frame}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \begin{frame}[fragile]{RollerOnly}
+
+        \footnotesize
+        \begin{verbatim}
+          \RollerOnly[rotate=0]{coordinate}{fill}{draw}{line width}{scale}
+
+          \RollerOnly{A}{Cornsilk3}{Black}{0.25}{1}
+        \end{verbatim}
+      
+        \vspace{1cm}
+      
+        \tikz{
+          \coordinate (A) at (0,0);
+          \RollerOnly{A}{Cornsilk3}{Black}{0.25}{1}
+        }
+      
+      \end{frame}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \begin{frame}[fragile]{RollerThree}
+
+        \footnotesize
+        \begin{verbatim}
+          \RollerThree[rotate=0]{coordinate}{fill}{draw}{line width}{scale}
+
+          \RollerThree{A}{Cornsilk3}{Black}{0.25}{2}
+        \end{verbatim}
+      
+        \vspace{1cm}
+      
+        \tikz{
+          \coordinate (A) at (0,0);
+          \RollerThree{A}{Cornsilk3}{Black}{0.25}{2}
+        }
+      
+      \end{frame}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \subsection{Math Review}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \subsection{Complex Frames}
+
+    \begin{frame}{a frame could go here}{but it doesn't yet}
         TO DO
     \end{frame}
 
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \setbeamercolor{frametitle}{bg=strength}
     \section{Strength}
     \subsection{Axial Deformation}
 
@@ -61,6 +230,8 @@
     \end{frame}
 
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \setbeamercolor{frametitle}{bg=fluids}
     \section{Fluids}
     % \subsection{Series Type A Systems}
     % \subsection{Equivalent Pipe}
@@ -70,6 +241,7 @@
         COMING SOON
     \end{frame}
     
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \end{document}
